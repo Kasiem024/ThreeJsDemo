@@ -10,6 +10,7 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color('white');
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+camera.position.set(270, 280, 2400);
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -18,19 +19,7 @@ document.body.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 
 //controls.update() must be called after any manual changes to the camera's transform
-camera.position.set(50, 50, 1000);
 controls.update();
-
-let group = new THREE.Group();
-
-// const geometry = new THREE.BoxGeometry();
-// const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-// const cube = new THREE.Mesh(geometry, material);
-// scene.add(cube);
-
-// camera.position.z = 1000;
-// camera.position.x = 500;
-// camera.position.y = 500;
 
 const animate = function() {
     requestAnimationFrame(animate);
@@ -41,8 +30,24 @@ const animate = function() {
 
     controls.update();
 
+    // console.log(controls)
+    // console.log(camera.position)
+
     renderer.render(scene, camera);
 };
+
+// const geometry = new THREE.BoxGeometry();
+// const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+// const cube = new THREE.Mesh(geometry, material);
+// scene.add(cube);
+
+// camera.position.z = 1000;
+// camera.position.x = 500;
+// camera.position.y = 500;
+
+
+
+let group = new THREE.Group();
 
 // instantiate a loader
 const loader = new SVGLoader();
@@ -79,6 +84,8 @@ loader.load(
             }
 
         }
+        // SVG is rendered inverted to the default
+        group.scale.y = -1
 
         scene.add(group);
         animate();
