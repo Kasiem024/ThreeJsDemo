@@ -2,9 +2,9 @@
 
 console.log('main.js is alive');
 
-import * as THREE from '../three/build/three.module.js';
-import { SVGLoader } from '../three/examples/jsm/loaders/SVGLoader.js';
-import { OrbitControls } from '../three/examples/jsm/controls/OrbitControls.js';
+import * as THREE from './three.module.js';
+import { SVGLoader } from './SVGLoader.js';
+import { OrbitControls } from './OrbitControls.js';
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color('white');
