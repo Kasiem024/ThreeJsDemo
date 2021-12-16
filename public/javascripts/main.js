@@ -26,7 +26,7 @@ const animate = function() {
 
     // group.rotation.x += 0.01;
     // group.rotation.y += 0.01;
-    // group.rotation.z += 0.01;
+    group.rotation.z += 0.01;
 
     controls.update();
 
